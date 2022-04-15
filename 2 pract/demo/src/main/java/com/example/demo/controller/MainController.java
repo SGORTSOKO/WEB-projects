@@ -14,11 +14,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 			@Value("${welcome.message}")
 			private String message;
 			
-			@RequestMapping(value = { "/", "index" }, method = RequestMethod.GET)
+			@RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
+			//обработка запросов к коренному или index методом get
+			//и передает модель методу
 			public String index(Model model) {
-				
+				//добавить в модель атрибут
 				model.addAttribute("message", message);
-				
+				//чтение будет их ресурсов
 				return "index";
+				//возврат имени файла - html
 			}
 		}
